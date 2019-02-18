@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Komis.Model
+namespace Komis.Models
 {
 	public class MockCarRepository : ICarRepository
 	{

@@ -1,4 +1,4 @@
-﻿namespace Komis.Model
+﻿namespace Komis.Models
 {
 	public class Car
 	{

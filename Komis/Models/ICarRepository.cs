@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Komis.Model
+namespace Komis.Models
 {
 	public interface ICarRepository
 	{

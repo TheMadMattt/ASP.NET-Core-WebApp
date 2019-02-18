@@ -1,0 +1,18 @@
+﻿@model Komis.ViewModels.HomeVM
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (var car in Model.carList)
+{
+	<div>
+		<h2>@car.Mark</h2>
+		<h2>@car.Model</h2>
+		<h3>@car.ProductionYear</h3>
+		<h3>@car.Mileage</h3>
+		<h3>@car.Power</h3>
+		<h2>@car.Price.ToString("c")</h2>
+		<h3>@car.Description</h3>
+	</div>
+}
+
+
