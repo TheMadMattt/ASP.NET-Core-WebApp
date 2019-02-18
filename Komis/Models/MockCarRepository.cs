@@ -29,19 +29,26 @@ namespace Komis.Models
 				},
 				new Car
 				{
-					Id = 1, Mark = "Ford", Model = "Galaxy", ProductionYear = 2005, Mileage = "134 000 km",
+					Id = 1, Mark = "Chevrolet", Model = "Corvete", ProductionYear = 2005, Mileage = "134 000 km",
 					TankSize = "4 900 cm3", FuelType = "Diesel", Price = 54000M,
 					Description = "lorem ipsum lorem ipsum lorem ipsum", Power = "109KM",
-					PhotoURL = "/images/fordGalaxy.jpg", ThumbnailURL = "/images/fordGalaxy.jpg", IsCarOfTheWeek = false
+					PhotoURL = "/images/chevroletCorvete.jpg", ThumbnailURL = "/images/chevroletCorvete.jpg", IsCarOfTheWeek = false
 				},
 				new Car
 				{
-				Id = 1, Mark = "Ford", Model = "Focus", ProductionYear = 2008, Mileage = "200 000 km",
+				Id = 1, Mark = "Jaguar", Model = " - ", ProductionYear = 2008, Mileage = "200 000 km",
 				TankSize = "5 000 cm3", FuelType = "Diesel", Price = 10000M,
 				Description = "lorem ipsum lorem ipsum lorem ipsum", Power = "151KM",
-				PhotoURL = "/images/fordFocus.jpg", ThumbnailURL = "/images/fordFocus.jpg", IsCarOfTheWeek = true
-				}
-			};
+				PhotoURL = "/images/jaguar.jpg", ThumbnailURL = "/images/jaguar.jpg", IsCarOfTheWeek = true
+				},
+                new Car
+                {
+                Id = 1, Mark = "Audi", Model = "S5", ProductionYear = 2008, Mileage = "200 000 km",
+                TankSize = "5 000 cm3", FuelType = "Diesel", Price = 10000M,
+                Description = "lorem ipsum lorem ipsum lorem ipsum", Power = "151KM",
+                PhotoURL = "/images/audiS5.jpg", ThumbnailURL = "/images/audiS5.jpg", IsCarOfTheWeek = true
+            }
+            };
 
 		}
 

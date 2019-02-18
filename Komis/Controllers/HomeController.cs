@@ -26,7 +26,7 @@ namespace Komis.Controllers
 
 			var homeVM = new HomeVM()
 			{
-				Title = "Przeglad samochodow",
+				Title = "Przegląd samochodów",
 				carList = cars.ToList()
 			};
 

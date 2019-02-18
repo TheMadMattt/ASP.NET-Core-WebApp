@@ -1,18 +1,30 @@
 ﻿@model Komis.ViewModels.HomeVM
 
-<h2>@ViewBag.Title</h2>
+<h2>@Model.Title</h2>
 
 @foreach (var car in Model.carList)
 {
-	<div>
-		<h2>@car.Mark</h2>
-		<h2>@car.Model</h2>
-		<h3>@car.ProductionYear</h3>
-		<h3>@car.Mileage</h3>
-		<h3>@car.Power</h3>
-		<h2>@car.Price.ToString("c")</h2>
-		<h3>@car.Description</h3>
-	</div>
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="@car.ThumbnailURL" alt=""/>
+            <div class="caption">
+                <h3 class="pull-right">@car.Price.ToString("c")</h3>
+                <h3>
+                    @car.Mark - @car.Model - @car.ProductionYear
+                </h3>
+                <h4>
+                    Przebieg: @car.Mileage
+                </h4>
+                <h4>
+                    Pojemność: @car.TankSize
+                </h4>
+                <h4>
+                    Moc: @car.Power
+                </h4>
+                <p>@car.Description</p>
+            </div>
+        </div>
+    </div>
 }
 
 
