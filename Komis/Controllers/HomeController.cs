@@ -12,17 +12,17 @@ namespace Komis.Controllers
 {
 	public class HomeController : Microsoft.AspNetCore.Mvc.Controller
 	{
-		private readonly ICarRepository carRepository;
+		private readonly ICarRepository _carRepository;
 
 		public HomeController(ICarRepository carRepository)
 		{
-			this.carRepository = carRepository;
+			this._carRepository = carRepository;
 		}
 
 		// GET: /<controller>/
 		public IActionResult Index()
 		{
-			var cars = carRepository.GetCars().OrderBy(s => s.Model);
+			var cars = _carRepository.GetCars().OrderBy(s => s.Model);
 
 			var homeVM = new HomeVM()
 			{
@@ -31,6 +31,18 @@ namespace Komis.Controllers
 			};
 
 			return View(homeVM);
+		}
+
+		public IActionResult Details(int id)
+		{
+			var car = _carRepository.GetCarById(id);
+
+			if (car == null)
+			{
+				return NotFound();
+			}
+
+			return View(car);
 		}
 	}
 }

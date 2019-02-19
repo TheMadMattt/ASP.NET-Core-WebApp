@@ -1,0 +1,17 @@
+﻿@model Car
+
+<h2>@Model.Mark - @Model.Model</h2>
+
+<div class="thumbnail">
+	<img alt="@Model.Mark" src="@Model.PhotoURL" />
+	
+	<div class="caption">
+		<h3 class="pull-right">Cena: @Model.Price.ToString("c")</h3>
+		
+		<h4>Rok produkcji: @Model.ProductionYear</h4>
+		<h4>Przebieg: @Model.Mileage</h4>
+		<h4>Pojemność: @Model.TankSize</h4>
+		<h4>Moc: @Model.Power</h4>
+		<p>@Model.Description</p>
+	</div>
+</div>

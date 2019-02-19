@@ -15,6 +15,6 @@
 		public string PhotoURL { get; set; }
 		public string ThumbnailURL { get; set; }
 		public bool IsCarOfTheWeek { get; set; }
-
+        public bool IsAvailable { get; set; }
 	}
 }
