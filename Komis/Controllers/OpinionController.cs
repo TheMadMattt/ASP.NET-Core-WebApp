@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Komis.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Komis.Controllers
 {
+	[Authorize]
     public class OpinionController : Controller
     {
 	    private readonly IOpinionRepository _opinionRepository;
