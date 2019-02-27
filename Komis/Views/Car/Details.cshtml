@@ -1,0 +1,47 @@
+﻿@model Car
+
+<div>
+    <div class="thumbnail">
+        <div class="row">
+            <div class="col-md-6">
+                <img alt="@Model.Mark" src="@Model.PhotoURL" height="500" width="500"/>
+            </div>
+            <div class="col-md-3">
+                <h3>@Model.Mark - @Model.Model</h3>
+                <h4>Cena: @Model.Price.ToString("c")</h4>
+                <h4>Rok produkcji: @Model.ProductionYear</h4>
+                <h4>Przebieg: @Model.Mileage</h4>
+                <h4>Pojemność: @Model.TankSize</h4>
+                <h4>Moc: @Model.Power</h4>
+                <h4>Rodzaj paliwa: @Model.FuelType</h4>
+                <h4>Jest samochodem tygodnia: 
+                    @if (Model.IsCarOfTheWeek)
+                    {
+                        <span>TAK</span>
+                    }
+                    else
+                    {
+                        <span>NIE</span>
+                    }
+                </h4>
+                <h4>Jest w komisie:
+                    @if (Model.IsAvailable)
+                    {
+                        <span>TAK</span>
+                    }
+                    else
+                    {
+                        <span>NIE</span>
+                    }
+                </h4>
+                <h4>Opis: @Model.Description</h4>
+            </div>
+            <div class="col-md-3" style="padding-right: 50px">
+                <h3 class="pull-right">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Edycja</a>
+                    <a asp-action="Index" class="btn btn-success">Powrót</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

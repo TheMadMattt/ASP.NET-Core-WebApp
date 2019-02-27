@@ -11,10 +11,13 @@ namespace Komis.Controllers
 
 		private readonly UserManager<IdentityUser> _userManager;
 
-		public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+		private RoleManager<IdentityRole> _roleManager;
+
+		public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
 		{
 			_signInManager = signInManager;
 			_userManager = userManager;
+			_roleManager = roleManager;
 		}
 
 		// GET: /<controller>/
@@ -76,6 +79,11 @@ namespace Komis.Controllers
 			await _signInManager.SignOutAsync();
 
 			return RedirectToAction("Index", "Home");
+		}
+
+		public IActionResult AssignRole()
+		{
+			return RedirectToAction("Index", "Role");
 		}
 	}
 }

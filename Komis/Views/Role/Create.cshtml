@@ -1,0 +1,16 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityRole
+
+<h2>Utwórz rolę</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>Wpisz nową rolę</td>
+            <td>
+                @Html.EditorFor(role => role.Name)
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Utwórz rolę"/>
+}

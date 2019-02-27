@@ -1,0 +1,30 @@
+﻿@model System.Collections.Generic.List<Microsoft.AspNetCore.Identity.IdentityRole>
+
+<h2>Dostępne role</h2>
+
+<section class="col-sm-6">
+    <table class="table-bordered">
+        @Html.ActionLink("Utwórz nową rolę", "Create", "Role")
+    </table>
+</section>
+<section class="col-sm-6">
+    <table class="table-bordered">
+        @Html.ActionLink("Przypisz rolę użytkownikowi", "AssignRole", "Account")
+    </table>
+</section>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Rola
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+        </tr>
+    }
+</table>

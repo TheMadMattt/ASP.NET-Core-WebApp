@@ -6,5 +6,9 @@ namespace Komis.Models
 	{
 		IEnumerable<Car> GetCars();
 		Car GetCarById(int carId);
+
+		void AddCar(Car car);
+		void EditCar(Car car);
+		void DeleteCar(Car car);
 	}
 }
