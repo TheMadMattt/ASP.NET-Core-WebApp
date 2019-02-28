@@ -3,5 +3,5 @@ C# Web application in ASP.NET Core
 
 Admin login:
 
-Login: admin
+Login: admin ||
 Password: admin123
