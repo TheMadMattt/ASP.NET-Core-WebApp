@@ -12,5 +12,7 @@ namespace Komis.ViewModels
 		[Display(Name = "Password")]
 		[DataType(DataType.Password)]
 		public string Password { get; set; }
+
+		public string RoleName { get; set; }
 	}
 }

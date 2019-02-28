@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Komis.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -8,11 +9,14 @@ namespace Komis.Controllers
 {
     public class RoleController : Controller
     {
-	    private AppDbContext _context;
+	    private readonly AppDbContext _context;
 
-	    public RoleController(AppDbContext context)
+	    private readonly RoleManager<IdentityRole> _roleManager;
+
+	    public RoleController(AppDbContext context, RoleManager<IdentityRole> roleManager)
 	    {
 		    _context = context;
+		    _roleManager = roleManager;
 	    }
 
 	    public IActionResult Index()
@@ -28,11 +32,30 @@ namespace Komis.Controllers
 	    }
 
 		[HttpPost]
-	    public IActionResult Create(IdentityRole role)
+		[ValidateAntiForgeryToken]
+	    public async Task<IActionResult> Create(IdentityRole role)
 	    {
-		    _context.Roles.Add(role);
-		    _context.SaveChanges();
+		    if (!await _roleManager.RoleExistsAsync(role.Name))
+		    {
+			    await _roleManager.CreateAsync(role);
+		    }
+
 		    return RedirectToAction("Index");
 	    }
-	}
+
+	    [HttpPost]
+		[ValidateAntiForgeryToken]
+	    public async Task<IActionResult> DeleteRole(string id)
+	    {
+		    var role = await _roleManager.FindByIdAsync(id);
+
+		    if (role != null)
+		    {
+			    _context.Roles.Remove(role);
+			    _context.SaveChanges();
+		    }
+
+		    return RedirectToAction("Index");
+	    }
+    }
 }

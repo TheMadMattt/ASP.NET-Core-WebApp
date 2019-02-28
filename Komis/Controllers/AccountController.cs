@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Komis.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Komis.Controllers
 {
@@ -83,6 +85,32 @@ namespace Komis.Controllers
 
 		public IActionResult AssignRole()
 		{
+			ViewBag.RoleName = new SelectList(_roleManager.Roles.ToList(), "Name", "Name");
+			ViewBag.Username = new SelectList(_userManager.Users.ToList(), "UserName", "UserName");
+
+			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> AssignRole(IdentityRole model, IdentityUser user)
+		{
+
+			var currentUser = await _userManager.FindByNameAsync(user.UserName);
+			if (!await _userManager.IsInRoleAsync(currentUser, "Admin"))
+			{
+				var currentRole = _userManager.GetRolesAsync(currentUser).Result;
+				if (currentRole.Count == 0)
+				{
+					await _userManager.AddToRoleAsync(currentUser, model.Name);
+				}
+				else
+				{
+					await _userManager.RemoveFromRoleAsync(currentUser, currentRole[0]);
+					await _userManager.AddToRoleAsync(currentUser, model.Name);
+				}
+			}
+
 			return RedirectToAction("Index", "Role");
 		}
 	}
