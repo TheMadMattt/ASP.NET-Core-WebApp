@@ -22,7 +22,7 @@ namespace Komis.Controllers
 		// GET: /<controller>/
 		public IActionResult Index()
 		{
-			var cars = _carRepository.GetCars().OrderBy(s => s.Model);
+			var cars = _carRepository.GetCars().OrderBy(s => s.Mark);
 
 			var homeVM = new HomeVM()
 			{
